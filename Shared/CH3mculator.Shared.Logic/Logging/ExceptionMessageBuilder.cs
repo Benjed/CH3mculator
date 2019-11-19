@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Runtime.InteropServices;
 using System.Text;
 
 namespace CH3mculator.Shared.Logic.Logging
@@ -11,6 +12,7 @@ namespace CH3mculator.Shared.Logic.Logging
 
             exceptionTextBuilder.AppendLine($"Exception thrown in {methodName}:{lineNumber} at {DateTime.Now.ToString("ddMMyyyy hh:mm:ss")}");
             exceptionTextBuilder.AppendLine($".NET Version: {Environment.Version}");
+            exceptionTextBuilder.AppendLine($"OS Version: {RuntimeInformation.OSDescription}");
             exceptionTextBuilder.AppendLine("----------------------------------------------");
             AppendExceptiontext(exception, exceptionTextBuilder);
 
