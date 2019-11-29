@@ -72,8 +72,5 @@ namespace CH3mculator.Shared.Logic.Logging
 
         public void Exception(Exception exception, [CallerMemberName] string methodName = "", [CallerLineNumber] int lineNumber = -1)
             => Exception(ExceptionMessageBuilder.BuildExceptionMessage(exception, methodName, lineNumber.ToString()), methodName, lineNumber);
-
-     
-
     }
 }
