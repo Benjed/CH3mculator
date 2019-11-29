@@ -1,0 +1,65 @@
+﻿<Window x:Class="CH3mculator.Shell.Shell"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        xmlns:local="clr-namespace:CH3mculator.Shell"
+        mc:Ignorable="d"
+        Height="500" Width="900"
+        TextElement.Foreground="{DynamicResource MaterialDesignBody}"
+        Background="{DynamicResource MaterialDesignPaper}"
+        TextElement.FontWeight="Medium"
+        TextElement.FontSize="14"
+        FontFamily="pack://application:,,,/MaterialDesignThemes.Wpf;component/Resources/Roboto/#Roboto">
+    <Window.DataContext>
+        <local:ShellViewModel />
+    </Window.DataContext>
+    <materialDesign:DrawerHost LeftDrawerBackground="{DynamicResource MaterialDesignPaper}" 
+                               x:Name="DrawerHost"
+                               IsLeftDrawerOpen="{Binding IsNavigationDrawerOpened, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}">
+        <materialDesign:DrawerHost.LeftDrawerContent>
+            <StackPanel Width="150" Margin="5">
+                <ToggleButton Style="{StaticResource MaterialDesignHamburgerToggleButton}" 
+                              IsChecked="{Binding IsLeftDrawerOpen, ElementName=DrawerHost}"
+                              HorizontalAlignment="Right"
+                              Margin="0 0 0 10" />
+                <Button Content="PubChemViewer" 
+                        Margin="0 0 0 10"
+                        Command="{Binding ShowPubChemViewerCommand}"/>
+                <Button Content="CH3mculator" 
+                        Margin="0 0 0 10" /> 
+                <Button Content="Info" />
+            </StackPanel>
+        </materialDesign:DrawerHost.LeftDrawerContent>
+
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto" />
+                <RowDefinition />
+            </Grid.RowDefinitions>
+
+            <materialDesign:ColorZone Padding="5" Mode="PrimaryMid">
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="Auto" />
+                        <ColumnDefinition />
+                    </Grid.ColumnDefinitions>
+                    <ToggleButton Style="{StaticResource MaterialDesignHamburgerToggleButton}" 
+                                  IsChecked="{Binding IsLeftDrawerOpen, ElementName=DrawerHost}"
+                                  HorizontalAlignment="Left"/>
+                    <TextBlock HorizontalAlignment="Right"
+                               VerticalAlignment="Center" 
+                               Grid.Column="1" 
+                               FontSize="18"
+                               Margin="0 0 5 0"
+                               Text="{Binding ModuleName, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"/>
+                </Grid>
+            </materialDesign:ColorZone>
+
+            <ContentControl Grid.Row="1"
+                            Content="{Binding ShownView, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}" />
+
+        </Grid>
+    </materialDesign:DrawerHost>
+</Window>

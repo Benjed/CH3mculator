@@ -1,10 +1,9 @@
-﻿using CH3mculator.Shell;
-using CH3mculator.Shell.ErrorHandling;
+﻿using CH3mculator.Shell.ErrorHandling;
 using System;
 using System.Windows;
 using System.Windows.Threading;
 
-namespace CH3mculator
+namespace CH3mculator.Shell
 {
     /// <summary>
     /// Interaktionslogik für "App.xaml"

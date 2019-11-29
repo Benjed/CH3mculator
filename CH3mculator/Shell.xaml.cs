@@ -1,15 +1,15 @@
-﻿using MahApps.Metro.Controls;
-using System.Reflection;
+﻿using System.Reflection;
+using System.Windows;
 using System.Windows.Controls;
 
-namespace CH3mculator
+namespace CH3mculator.Shell
 {
     /// <summary>
     /// Interaktionslogik für MainWindow.xaml
     /// </summary>
-    public partial class MainWindow : MetroWindow
+    public partial class Shell : Window
     {
-        public MainWindow()
+        public Shell()
         {
             InitializeComponent();
             SetTitleInformation();
@@ -18,7 +18,6 @@ namespace CH3mculator
         private void SetTitleInformation()
         {
             var assemblyName = Assembly.GetEntryAssembly().GetName();
-            TitleCharacterCasing = CharacterCasing.Normal;
             Title = string.Concat("CH3mculator - ", assemblyName.Version.ToString());
         }
     }
