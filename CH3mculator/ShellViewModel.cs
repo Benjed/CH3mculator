@@ -1,4 +1,5 @@
 ﻿using CH3mculator.Module.PubChemViewer;
+using CH3mculator.Shared.Model.Module;
 using GalaSoft.MvvmLight;
 using GalaSoft.MvvmLight.Command;
 using System.Windows.Controls;
@@ -49,19 +50,31 @@ namespace CH3mculator.Shell
             }
         }
 
+        private UserControl _ribboncontent;
+        public UserControl Ribboncontent
+        {
+            get => _ribboncontent; 
+            set 
+            { 
+                _ribboncontent = value;
+                RaisePropertyChanged();
+            }
+        }
+
+
         public ICommand ShowPubChemViewerCommand { get; set; }
 
         public ShellViewModel()
         {
-            ShowPubChemViewerCommand = new RelayCommand(ShowPubChemViewer);
+            ShowPubChemViewerCommand = new RelayCommand(() => ShowModule(new PubChemViewer()));
             ShowPubChemViewerCommand.Execute(null);
         }
 
-        private void ShowPubChemViewer()
+        private void ShowModule(IModule module)
         {
-            var pubChemViewer = new PubChemViewer();
-            ShownView = pubChemViewer.GetEntryView();
-            ModuleName = pubChemViewer.ModuleName;
+            ShownView = module.GetEntryView();
+            Ribboncontent = module.GetRibbonView();
+            ModuleName = module.ModuleName;
             IsNavigationDrawerOpened = false;
         }
     }

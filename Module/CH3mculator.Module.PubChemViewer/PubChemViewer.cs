@@ -11,5 +11,10 @@ namespace CH3mculator.Module.PubChemViewer
         {
             return new PubChemViewerMainView();
         }
+
+        public UserControl GetRibbonView()
+        {
+            return new RibbonView();
+        }
     }
 }

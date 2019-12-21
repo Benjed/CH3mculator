@@ -44,13 +44,17 @@
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="Auto" />
                         <ColumnDefinition />
+                        <ColumnDefinition Width="Auto"/>
                     </Grid.ColumnDefinitions>
                     <ToggleButton Style="{StaticResource MaterialDesignHamburgerToggleButton}" 
                                   IsChecked="{Binding IsLeftDrawerOpen, ElementName=DrawerHost}"
                                   HorizontalAlignment="Left"/>
+                    <ContentControl Grid.Column="1"
+                                    Margin="10 0 10 0"
+                                    Content="{Binding Ribboncontent, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}" />
                     <TextBlock HorizontalAlignment="Right"
                                VerticalAlignment="Center" 
-                               Grid.Column="1" 
+                               Grid.Column="2" 
                                FontSize="18"
                                Margin="0 0 5 0"
                                Text="{Binding ModuleName, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"/>

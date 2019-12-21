@@ -26,6 +26,7 @@
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <LangVersion>8.0</LangVersion>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -35,6 +36,7 @@
     <DefineConstants>TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <LangVersion>8.0</LangVersion>
   </PropertyGroup>
   <PropertyGroup>
     <ApplicationIcon>icon.ico</ApplicationIcon>
@@ -140,6 +142,10 @@
     <ProjectReference Include="..\Shared\CH3mculator.Shared.Logic\CH3mculator.Shared.Logic.csproj">
       <Project>{4F025BA0-CFA1-49F8-85A8-975314539A9D}</Project>
       <Name>CH3mculator.Shared.Logic</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Shared\CH3mculator.Shared.Model\CH3mculator.Shared.Model.csproj">
+      <Project>{559245A3-330C-44F3-B096-C21D663F7049}</Project>
+      <Name>CH3mculator.Shared.Model</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>

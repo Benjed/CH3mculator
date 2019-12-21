@@ -59,5 +59,14 @@ namespace CH3mculator.Shell.Tests
 
             Assert.AreEqual(sut.ModuleName, "PubChemViewer");
         }
+
+        [TestMethod]
+        public void Shows_Ribboncontent_of_module()
+        {
+            var sut = new ShellViewModel();
+            sut.ShowPubChemViewerCommand.Execute(null);
+
+            sut.Ribboncontent.Should().BeOfType(typeof(RibbonView));
+        }
     }
 }

@@ -6,5 +6,6 @@ namespace CH3mculator.Shared.Model.Module
     {
         string ModuleName { get; set; }
         UserControl GetEntryView();
+        UserControl GetRibbonView();
     }
 }
