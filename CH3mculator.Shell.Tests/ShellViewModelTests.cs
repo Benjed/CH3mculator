@@ -19,7 +19,7 @@ namespace CH3mculator.Shell.Tests
         {
             var sut = new ShellViewModel();
 
-            sut.ShownView.Should().BeOfType(typeof(PubChemViewerMainView));
+            sut.ShownView.Should().BeOfType(typeof(MainView));
         }
 
         [TestMethod]
@@ -32,7 +32,7 @@ namespace CH3mculator.Shell.Tests
             {
                 sut.ShowPubChemViewerCommand.Execute(null);
 
-                sut.ShownView.Should().BeOfType(typeof(PubChemViewerMainView));
+                sut.ShownView.Should().BeOfType(typeof(MainView));
                 sutMonitor.Should().RaisePropertyChangeFor(x => x.ShownView);
             }
         }

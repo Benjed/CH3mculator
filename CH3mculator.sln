@@ -17,6 +17,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CH3mculator.Shared.Model", 
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CH3mculator.Shell.Tests", "CH3mculator.Shell.Tests\CH3mculator.Shell.Tests.csproj", "{5D69FEFA-906D-4B29-B229-204F27DEACC8}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CH3mculator.Module.PubChemViewer.Tests", "Module\CH3mculator.Module.PubChemViewer.Tests\CH3mculator.Module.PubChemViewer.Tests.csproj", "{6480D43E-CE41-4A8F-ABAA-2FD09D1E5B66}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -43,6 +45,10 @@ Global
 		{5D69FEFA-906D-4B29-B229-204F27DEACC8}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{5D69FEFA-906D-4B29-B229-204F27DEACC8}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{5D69FEFA-906D-4B29-B229-204F27DEACC8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6480D43E-CE41-4A8F-ABAA-2FD09D1E5B66}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6480D43E-CE41-4A8F-ABAA-2FD09D1E5B66}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6480D43E-CE41-4A8F-ABAA-2FD09D1E5B66}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6480D43E-CE41-4A8F-ABAA-2FD09D1E5B66}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -51,6 +57,7 @@ Global
 		{4F025BA0-CFA1-49F8-85A8-975314539A9D} = {CAC63728-5C79-4ED8-AF8B-A2CAB49AC396}
 		{E4D58A44-1B4E-4339-8F07-F248634C6AC5} = {C4CAE539-0E29-41DD-9B94-5184E269595B}
 		{559245A3-330C-44F3-B096-C21D663F7049} = {CAC63728-5C79-4ED8-AF8B-A2CAB49AC396}
+		{6480D43E-CE41-4A8F-ABAA-2FD09D1E5B66} = {C4CAE539-0E29-41DD-9B94-5184E269595B}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {0A756B55-503D-42F7-8405-BF627307B2D8}

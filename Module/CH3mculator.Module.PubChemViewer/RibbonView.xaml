@@ -3,10 +3,32 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
              xmlns:local="clr-namespace:CH3mculator.Module.PubChemViewer"
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
-    <Grid>
-            
+    <Grid HorizontalAlignment="Center">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="Auto" />
+            <ColumnDefinition Width="450"/>
+        </Grid.ColumnDefinitions>
+        <Border Grid.ColumnSpan="2" 
+                Background="LightSkyBlue" />
+        <TextBox Grid.ColumnSpan="2" 
+                 FontSize="20"
+                 Padding="18 0 0 0"
+                 Foreground="GhostWhite" 
+                 VerticalContentAlignment="Center"
+                 Text="" >
+            <TextBox.InputBindings>
+                <KeyBinding Command="" Key="Return" />
+            </TextBox.InputBindings>
+        </TextBox>
+        <materialDesign:PackIcon Kind="magnify" 
+                                 Grid.Column="0" 
+                                 Height="30" 
+                                 Width="30"
+                                 Margin="2 0 0 0"
+                                 VerticalAlignment="Center"/>
     </Grid>
 </UserControl>

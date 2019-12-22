@@ -9,7 +9,7 @@ namespace CH3mculator.Module.PubChemViewer
 
         public UserControl GetEntryView()
         {
-            return new PubChemViewerMainView();
+            return new MainView();
         }
 
         public UserControl GetRibbonView()
