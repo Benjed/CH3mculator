@@ -1,4 +1,5 @@
-﻿using System.Windows.Controls;
+﻿using GalaSoft.MvvmLight;
+using System.Windows.Controls;
 
 namespace CH3mculator.Module.PubChemViewer
 {
@@ -7,9 +8,10 @@ namespace CH3mculator.Module.PubChemViewer
     /// </summary>
     public partial class MainView : UserControl
     {
-        public MainView()
+        public MainView(ViewModelBase viewModel)
         {
             InitializeComponent();
+            DataContext = viewModel;
         }
     }
 }

@@ -19,9 +19,9 @@
                  Padding="18 0 0 0"
                  Foreground="GhostWhite" 
                  VerticalContentAlignment="Center"
-                 Text="" >
+                 Text="{Binding DataProvider.CompoundSearchTerm, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}" >
             <TextBox.InputBindings>
-                <KeyBinding Command="" Key="Return" />
+                <KeyBinding Command="{Binding ExecuteSearchCommand}" Key="Return" />
             </TextBox.InputBindings>
         </TextBox>
         <materialDesign:PackIcon Kind="magnify" 

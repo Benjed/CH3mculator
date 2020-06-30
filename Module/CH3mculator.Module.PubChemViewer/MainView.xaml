@@ -5,47 +5,73 @@
              xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:CH3mculator.Module.PubChemViewer"
+             xmlns:converter="clr-namespace:CH3mculator.Shared.Logic.Converter;assembly=CH3mculator.Shared.Logic"
+             xmlns:fa="http://schemas.fontawesome.io/icons/"
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
+    <UserControl.Resources>
+        <converter:BoolToVisibilityConverter x:Key="BoolToVisibilityConverter" />
+        <converter:InverseBoolToVisibilityConverter x:Key="InverseBoolToVisibilityConverter" />
+    </UserControl.Resources>
     <Grid>
-        <StackPanel Margin="50">
-            <StackPanel Orientation="Horizontal">
-                <TextBlock Text="Oxygen"
+        <StackPanel>
+            <StackPanel Margin="50"
+                    Visibility="{Binding DataProvider.IsCompoundSelected, UpdateSourceTrigger=PropertyChanged, Mode=OneWay, Converter={StaticResource BoolToVisibilityConverter}}">
+                <StackPanel Orientation="Horizontal">
+                    <TextBlock Text="{Binding DataProvider.ExaminedCompound.Name, UpdateSourceTrigger=PropertyChanged, Mode=OneWay}"
                            FontSize="35" />
-                <TextBlock Margin="8 0 0 0"
+                    <TextBlock Margin="8 0 0 0"
                            FontSize="12" 
                            VerticalAlignment="Bottom">
                     <Hyperlink Foreground="LightSteelBlue"
-                               NavigateUri="">
+                               Command="{Binding OpenPubChemLinkCommand}">
                         PubChem
                     </Hyperlink>
-                </TextBlock>
-                <TextBlock Text=" CID"
+                    </TextBlock>
+                    <TextBlock Text=" CID"
                            Margin="0"
                            FontSize="12" 
                            VerticalAlignment="Bottom"/>
-                <TextBlock Text=""
+                    <TextBlock Text="{Binding DataProvider.ExaminedCompound.PubChemCid, UpdateSourceTrigger=PropertyChanged, Mode=OneWay}"
                            Margin="0"
                            FontSize="12" 
                            VerticalAlignment="Bottom"/>
-            </StackPanel>
-            <StackPanel Orientation="Horizontal"
+                </StackPanel>
+                <StackPanel Orientation="Horizontal"
                         Margin="0 25 0 0" >
-                <TextBlock Text="Molecular Weight:" 
+                    <TextBlock Text="Molecular Weight:" 
                            FontWeight="Light"
                            FontSize="15" />
-                <TextBlock Text="31.999 g/mol" 
+                    <TextBlock Text="{Binding DataProvider.ExaminedCompound.MolecularWeight, UpdateSourceTrigger=PropertyChanged, Mode=OneWay}" 
                            Margin="5 0 0 0" />
-            </StackPanel>
-            <StackPanel Orientation="Horizontal"
+                    <TextBlock Text=" g/mol" 
+                           Margin="0" />
+                </StackPanel>
+                <StackPanel Orientation="Horizontal"
                         Margin="0 5 0 0" >
-                <TextBlock Text="Density:" 
+                    <TextBlock Text="Density:" 
                            FontWeight="Light"
                            FontSize="15" />
-                <TextBlock Text="1.14 g/ml" 
+                    <TextBlock Text="{Binding DataProvider.ExaminedCompound.Density, UpdateSourceTrigger=PropertyChanged, Mode=OneWay}" 
                            Margin="5 0 0 0" />
+                    <TextBlock Text=" g/ml" 
+                           Margin="0" />
+                </StackPanel>
+            </StackPanel>
+            <StackPanel Margin="50"
+                    Visibility="{Binding DataProvider.IsCompoundSelected, UpdateSourceTrigger=PropertyChanged, Mode=OneWay, Converter={StaticResource InverseBoolToVisibilityConverter}}">
+                <TextBlock Text="{Binding DataProvider.DisplayMessage, UpdateSourceTrigger=PropertyChanged, Mode=OneWay}"
+                           FontSize="35" />
             </StackPanel>
         </StackPanel>
-        
+        <Border Background="Black"
+                Visibility="{Binding IsLoading, UpdateSourceTrigger=PropertyChanged, Converter={StaticResource BooleanToVisibilityConverter}}"/>
+        <fa:ImageAwesome Icon="Spinner" 
+                         Spin="True" 
+                         Foreground="White"
+                         SpinDuration="4" 
+                         Height="120"
+                         Margin="0 0 0 50"
+                         Visibility="{Binding IsLoading, UpdateSourceTrigger=PropertyChanged, Converter={StaticResource BooleanToVisibilityConverter}}"/>
     </Grid>
 </UserControl>

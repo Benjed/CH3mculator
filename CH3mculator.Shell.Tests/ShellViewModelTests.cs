@@ -1,5 +1,4 @@
-﻿using System;
-using CH3mculator.Module.PubChemViewer;
+﻿using CH3mculator.Module.PubChemViewer;
 using FluentAssertions;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
