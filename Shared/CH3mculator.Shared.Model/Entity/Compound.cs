@@ -47,15 +47,5 @@ namespace CH3mculator.Shared.Model.Entity
                 RaisePropertyChanged(); 
             } 
         }
-
-        private bool _isFluid;
-        public bool IsFluid 
-        { 
-            get => _isFluid; 
-            set { 
-                _isFluid = value; 
-                RaisePropertyChanged(); 
-            } 
-        }
     }
 }

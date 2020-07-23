@@ -21,27 +21,23 @@
                     <TextBlock Text="{Binding DataProvider.ExaminedCompound.Name, UpdateSourceTrigger=PropertyChanged, Mode=OneWay}"
                            FontSize="35" />
                     <TextBlock Margin="8 0 0 0"
-                           FontSize="12" 
                            VerticalAlignment="Bottom">
                     <Hyperlink Foreground="LightSteelBlue"
                                Command="{Binding OpenPubChemLinkCommand}">
                         PubChem
                     </Hyperlink>
                     </TextBlock>
-                    <TextBlock Text=" CID"
+                    <TextBlock Text=" CID "
                            Margin="0"
-                           FontSize="12" 
                            VerticalAlignment="Bottom"/>
                     <TextBlock Text="{Binding DataProvider.ExaminedCompound.PubChemCid, UpdateSourceTrigger=PropertyChanged, Mode=OneWay}"
                            Margin="0"
-                           FontSize="12" 
                            VerticalAlignment="Bottom"/>
                 </StackPanel>
                 <StackPanel Orientation="Horizontal"
                         Margin="0 25 0 0" >
                     <TextBlock Text="Molecular Weight:" 
-                           FontWeight="Light"
-                           FontSize="15" />
+                           FontWeight="Light"/>
                     <TextBlock Text="{Binding DataProvider.ExaminedCompound.MolecularWeight, UpdateSourceTrigger=PropertyChanged, Mode=OneWay}" 
                            Margin="5 0 0 0" />
                     <TextBlock Text=" g/mol" 
@@ -50,11 +46,10 @@
                 <StackPanel Orientation="Horizontal"
                         Margin="0 5 0 0" >
                     <TextBlock Text="Density:" 
-                           FontWeight="Light"
-                           FontSize="15" />
+                           FontWeight="Light"/>
                     <TextBlock Text="{Binding DataProvider.ExaminedCompound.Density, UpdateSourceTrigger=PropertyChanged, Mode=OneWay}" 
                            Margin="5 0 0 0" />
-                    <TextBlock Text=" g/ml" 
+                    <TextBlock Text=" g/cm³" 
                            Margin="0" />
                 </StackPanel>
             </StackPanel>
