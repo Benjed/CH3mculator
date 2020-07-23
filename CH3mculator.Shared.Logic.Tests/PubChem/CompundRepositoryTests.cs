@@ -23,21 +23,5 @@
 
             Assert.AreEqual(expectedPubchemId, result.PubChemCid);
         }
-
-        [TestMethod]
-        [DataRow("Calcium", 1.55)]
-        [DataRow("Iron", 7.874)]
-        [DataRow("Oxygen", 0.0014290000000000002)]
-        [DataRow("Nitrogen", 0.0012506)]
-        public void Density_Is_Correct(string name, double density)
-        {
-            var sut = new CompoundRepository();
-            var result = Task<Compound>.Run(() =>
-            {
-                return sut.GetCompoundAsync(name);
-            }).Result;
-
-            Assert.AreEqual(density, result.Density);
-        }
     }
 }

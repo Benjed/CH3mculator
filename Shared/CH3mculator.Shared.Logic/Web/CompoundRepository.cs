@@ -1,54 +1,46 @@
 ﻿using CH3mculator.Shared.Model.Entity;
+using Newtonsoft.Json.Linq;
 using System;
 using System.Globalization;
+using System.Linq;
 using System.Net.Http;
+using System.Text;
 using System.Threading.Tasks;
 
 namespace CH3mculator.Shared.Logic.Web
 {
     public class CompoundRepository
     {
-        private const string PUBCHEM_BASE_URL = "https://pubchem.ncbi.nlm.nih.gov/rest/pug/compound/name/";
-        private const string WIKIPEDIA_BASE_URL = "https://en.wikipedia.org/wiki/";
-        private const string DENSITY_INDEX_STRING_STP = "title=\"Density\">Density</a> <span style=\"font-weight:normal;\">(at&#160;STP)</span></th><td>";
-        private const string DENSITY_INDEX_STRING_RT = "title=\"Density\">Density</a>&#x20;<span style=\"font-weight:normal;\">(near&#160;<abbr title=\"room temperature\">r.t.</abbr>)</span></th><td>";
+        private const string PUG_BASE_URL = "https://pubchem.ncbi.nlm.nih.gov/rest/pug/compound/name/";
+        private const string PUG_VIEW__BASE_URL = "https://pubchem.ncbi.nlm.nih.gov/rest/pug_view/data/compound/";
         private string _pubChemUrl;
 
         private HttpClient _httpClient;
         public async Task<Compound> GetCompoundAsync(string compoundname)
         {
-            Compound compound;
-            _pubChemUrl = string.Concat(PUBCHEM_BASE_URL, compoundname);
+            Compound compound = new Compound() { Name = compoundname };
+            _pubChemUrl = string.Concat(PUG_BASE_URL, compoundname);
             using (_httpClient = new HttpClient())
             {
-                compound = new Compound()
-                {
-                    Name = compoundname,
-                    Density = await GetDensityAsync(compoundname),
-                    MolecularWeight = await GetDoubleProperty(nameof(Compound.MolecularWeight)),
-                    PubChemCid =  (await _httpClient.GetStringAsync(string.Concat(_pubChemUrl, "/cids/", "/TXT/"))).Trim(),
-                };
+
+                compound.PubChemCid = (await _httpClient.GetStringAsync(string.Concat(_pubChemUrl, "/cids/", "/TXT/"))).Trim();
+                compound.MolecularWeight = await GetDoubleProperty(nameof(Compound.MolecularWeight));
+                compound.Density = await GetDensityAsync(compound.PubChemCid);
             }
 
             return compound;
         }
 
-        private async Task<double> GetDensityAsync(string compoundName)
+        private async Task<double> GetDensityAsync(string cid)
         {
-            string wikipediaPage = await _httpClient.GetStringAsync(string.Concat(WIKIPEDIA_BASE_URL, compoundName));
-            if (string.IsNullOrWhiteSpace(wikipediaPage))
-                return default;
+            var response = await _httpClient.GetStringAsync(string.Concat(PUG_VIEW__BASE_URL, cid, "/JSON?heading=Experimental+Properties"));
+            var experimentalProperties = JObject.Parse(response);
+            var densityElement = experimentalProperties["Record"]["Section"][0]["Section"][0]["Section"].FirstOrDefault(x => x.Value<string>("TOCHeading") == nameof(Compound.Density));
+            string density = densityElement["Information"][0]["Value"]["StringWithMarkup"][0].Value<string>("String");
+            int indexerOfWhitespace = density.IndexOf(" ");
+            density = indexerOfWhitespace != -1 ? density.Substring(0, indexerOfWhitespace) : density;
 
-            string indexString = (wikipediaPage.IndexOf(DENSITY_INDEX_STRING_STP) == -1) ? DENSITY_INDEX_STRING_RT : DENSITY_INDEX_STRING_STP;
-            int densityIndex = wikipediaPage.IndexOf(indexString);
-            if (densityIndex == -1)
-                return default;
-
-            string densityStart = wikipediaPage.Substring(densityIndex + indexString.Length);
-            string densityIncludingUnit = densityStart.Substring(0, densityStart.IndexOf("</td>"));
-            double density = Convert.ToDouble(densityIncludingUnit.Substring(0, densityIncludingUnit.IndexOf("&#160;")), new NumberFormatInfo() { NumberDecimalSeparator = "." });
-
-            return densityIncludingUnit.Contains("g/L") ? density / 1000d : density;
+            return Convert.ToDouble(density, new NumberFormatInfo() { NumberDecimalSeparator = "." });
         }
 
         private async Task<string> GetStringProperty(string propertyName)
@@ -56,10 +48,23 @@ namespace CH3mculator.Shared.Logic.Web
             return (await _httpClient.GetStringAsync(string.Concat(_pubChemUrl, "/property/", propertyName, "/TXT/"))).Trim();
         }
 
+        private async Task<string> GetStringProperties(params string[] propertyNames)
+        {
+            var propertyBuilder = new StringBuilder();
+            foreach (string property in propertyNames)
+            {
+                propertyBuilder.Append(",");
+                propertyBuilder.Append(property);
+            }
+            string properties = propertyBuilder.ToString().Substring(1); // Removal of the first comma
+
+            return await _httpClient.GetStringAsync(string.Concat(_pubChemUrl, "/property/", properties, "/CSV/"));
+        }
+
         private async Task<double> GetDoubleProperty(string propertyName)
         {
             var response =  await _httpClient.GetStringAsync(string.Concat(_pubChemUrl, "/property/", propertyName, "/TXT/"));
-            return Convert.ToDouble(response);
+            return Convert.ToDouble(response, new NumberFormatInfo() { NumberDecimalSeparator = "." });
         }
     }
 }
