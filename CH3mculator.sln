@@ -25,6 +25,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CH3mculator.Module.Calculat
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CH3mculator.Module.Calculator.Tests", "CH3mculator.Module.Calculator.Tests\CH3mculator.Module.Calculator.Tests.csproj", "{8234E114-6276-4574-8FE8-D9945A5CAD3B}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CH3mculator.Shared.UI", "CH3mculator.Shared.UI\CH3mculator.Shared.UI.csproj", "{C32924AB-6565-48E9-AB58-A6845EB1DB95}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CH3mculator.Module.Settings", "Module\CH3mculator.Module.Settings\CH3mculator.Module.Settings.csproj", "{2DD90DB2-B367-47EF-84D9-661F31F98631}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -67,6 +71,14 @@ Global
 		{8234E114-6276-4574-8FE8-D9945A5CAD3B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{8234E114-6276-4574-8FE8-D9945A5CAD3B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{8234E114-6276-4574-8FE8-D9945A5CAD3B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C32924AB-6565-48E9-AB58-A6845EB1DB95}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C32924AB-6565-48E9-AB58-A6845EB1DB95}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C32924AB-6565-48E9-AB58-A6845EB1DB95}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C32924AB-6565-48E9-AB58-A6845EB1DB95}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2DD90DB2-B367-47EF-84D9-661F31F98631}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2DD90DB2-B367-47EF-84D9-661F31F98631}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2DD90DB2-B367-47EF-84D9-661F31F98631}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2DD90DB2-B367-47EF-84D9-661F31F98631}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -79,6 +91,8 @@ Global
 		{19E08E17-B9BB-4229-A4A2-7F8308A2FD85} = {CAC63728-5C79-4ED8-AF8B-A2CAB49AC396}
 		{69D91F6B-806E-404C-9D27-D3D7A540A141} = {C4CAE539-0E29-41DD-9B94-5184E269595B}
 		{8234E114-6276-4574-8FE8-D9945A5CAD3B} = {C4CAE539-0E29-41DD-9B94-5184E269595B}
+		{C32924AB-6565-48E9-AB58-A6845EB1DB95} = {CAC63728-5C79-4ED8-AF8B-A2CAB49AC396}
+		{2DD90DB2-B367-47EF-84D9-661F31F98631} = {C4CAE539-0E29-41DD-9B94-5184E269595B}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {0A756B55-503D-42F7-8405-BF627307B2D8}

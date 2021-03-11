@@ -1,4 +1,6 @@
-﻿using CH3mculator.Module.PubChemViewer;
+﻿using CH3mculator.Module.Calculator;
+using CH3mculator.Module.PubChemViewer;
+using CH3mculator.Module.Settings;
 using CH3mculator.Shared.Model.Module;
 using GalaSoft.MvvmLight;
 using GalaSoft.MvvmLight.Command;
@@ -61,13 +63,25 @@ namespace CH3mculator.Shell
             }
         }
 
+        private Calculator _calculatorInstance;
 
         public ICommand ShowPubChemViewerCommand { get; set; }
+        public ICommand ShowCalculatorCommand { get; set; }
+        public ICommand ShowSettingsCommand { get; set; }
+        public ICommand ShowInfoCommand { get; set; }
 
         public ShellViewModel()
         {
+            ShowCalculatorCommand = new RelayCommand(() => 
+            {
+                if (_calculatorInstance == null)
+                    _calculatorInstance = new Calculator();
+                ShowModule(_calculatorInstance);
+            });
             ShowPubChemViewerCommand = new RelayCommand(() => ShowModule(new PubChemViewer()));
-            ShowPubChemViewerCommand.Execute(null);
+            ShowInfoCommand = new RelayCommand(() => ShowModule(new Info()));
+            ShowSettingsCommand = new RelayCommand(() => ShowModule(new Settings()));
+            ShowCalculatorCommand.Execute(null);
         }
 
         private void ShowModule(IModule module)

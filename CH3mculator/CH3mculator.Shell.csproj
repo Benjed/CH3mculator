@@ -138,9 +138,21 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\CH3mculator.Module.Calculator\CH3mculator.Module.Calculator.csproj">
+      <Project>{69D91F6B-806E-404C-9D27-D3D7A540A141}</Project>
+      <Name>CH3mculator.Module.Calculator</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\CH3mculator.Shared.UI\CH3mculator.Shared.UI.csproj">
+      <Project>{c32924ab-6565-48e9-ab58-a6845eb1db95}</Project>
+      <Name>CH3mculator.Shared.UI</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Module\CH3mculator.Module.PubChemViewer\CH3mculator.Module.PubChemViewer.csproj">
       <Project>{E4D58A44-1B4E-4339-8F07-F248634C6AC5}</Project>
       <Name>CH3mculator.Module.PubChemViewer</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Module\CH3mculator.Module.Settings\CH3mculator.Module.Settings.csproj">
+      <Project>{2DD90DB2-B367-47EF-84D9-661F31F98631}</Project>
+      <Name>CH3mculator.Module.Settings</Name>
     </ProjectReference>
     <ProjectReference Include="..\Shared\CH3mculator.Shared.Logic\CH3mculator.Shared.Logic.csproj">
       <Project>{4F025BA0-CFA1-49F8-85A8-975314539A9D}</Project>

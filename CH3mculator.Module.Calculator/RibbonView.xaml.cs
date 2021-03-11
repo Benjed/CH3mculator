@@ -17,11 +17,11 @@ using System.Windows.Shapes;
 namespace CH3mculator.Module.Calculator
 {
     /// <summary>
-    /// Interaction logic for MainView.xaml
+    /// Interaction logic for UserControl1.xaml
     /// </summary>
-    public partial class MainView : UserControl
+    public partial class RibbonView : UserControl
     {
-        public MainView(ViewModelBase viewModel)
+        public RibbonView(ViewModelBase viewModel)
         {
             InitializeComponent();
             DataContext = viewModel;

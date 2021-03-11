@@ -14,14 +14,14 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace CH3mculator.Module.Calculator
+namespace CH3mculator.Module.Settings
 {
     /// <summary>
-    /// Interaction logic for MainView.xaml
+    /// Interaction logic for SettingsView.xaml
     /// </summary>
-    public partial class MainView : UserControl
+    public partial class SettingsView : UserControl
     {
-        public MainView(ViewModelBase viewModel)
+        public SettingsView(ViewModelBase viewModel)
         {
             InitializeComponent();
             DataContext = viewModel;

@@ -1,5 +1,6 @@
 ﻿using CH3mculator.Shared.Model.Entity;
 using GalaSoft.MvvmLight;
+using System;
 
 namespace CH3mculator.Module.PubChemViewer.Data
 {
@@ -25,6 +26,16 @@ namespace CH3mculator.Module.PubChemViewer.Data
             set
             {
                 _examinedCompound = value;
+                if (value == null)
+                {
+                    IsCompoundSelected = false;
+                    DisplayMessage = string.Concat("Could not retrieve compound", Environment.NewLine, " ...did you spell it right?");
+                }
+                else
+                {
+                    IsCompoundSelected = true;
+                }
+
                 RaisePropertyChanged();
             }
         }

@@ -29,25 +29,11 @@ namespace CH3mculator.Module.PubChemViewer
                 RaisePropertyChanged();
             }
         }
-        private CompoundRepository _compoundRepository = new CompoundRepository();
 
-        private bool _isLoading;
-        public bool IsLoading
-        {
-            get => _isLoading;
-            set
-            {
-                _isLoading = value;
-                RaisePropertyChanged();
-            }
-        }
-
-        public ICommand ExecuteSearchCommand { get; set; }
         public ICommand OpenPubChemLinkCommand { get; set; }
 
         public MainViewModel()
         {
-            IsLoading = false;
             DataProvider = new DataProvider();
 
             InitializeCommands();
@@ -55,25 +41,7 @@ namespace CH3mculator.Module.PubChemViewer
 
         private void InitializeCommands()
         {
-            ExecuteSearchCommand = new RelayCommand(ExecuteSearch);
             OpenPubChemLinkCommand = new RelayCommand(OpenPubChemLink);
-        }
-
-        private async void ExecuteSearch()
-        {
-            IsLoading = true;
-            try
-            {
-                DataProvider.ExaminedCompound = await _compoundRepository.GetCompoundAsync(_dataProvider.CompoundSearchTerm);
-                DataProvider.IsCompoundSelected = true;
-            }
-            catch (Exception ex)
-            {
-                DataProvider.IsCompoundSelected = false;
-                DataProvider.DisplayMessage = string.Concat("Could not retrieve compound", Environment.NewLine, " ...did you spell it right?");
-                Logger.Log.Exception(ex);
-            }
-            IsLoading = false;
         }
 
         private void OpenPubChemLink()

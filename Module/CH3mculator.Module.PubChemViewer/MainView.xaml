@@ -59,14 +59,5 @@
                            FontSize="35" />
             </StackPanel>
         </StackPanel>
-        <Border Background="Black"
-                Visibility="{Binding IsLoading, UpdateSourceTrigger=PropertyChanged, Converter={StaticResource BooleanToVisibilityConverter}}"/>
-        <fa:ImageAwesome Icon="Spinner" 
-                         Spin="True" 
-                         Foreground="White"
-                         SpinDuration="4" 
-                         Height="120"
-                         Margin="0 0 0 50"
-                         Visibility="{Binding IsLoading, UpdateSourceTrigger=PropertyChanged, Converter={StaticResource BooleanToVisibilityConverter}}"/>
     </Grid>
 </UserControl>

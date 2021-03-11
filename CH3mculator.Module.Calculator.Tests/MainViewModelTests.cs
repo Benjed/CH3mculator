@@ -7,8 +7,11 @@ namespace CH3mculator.Module.Calculator.Tests
     public class MainViewModelTests
     {
         [TestMethod]
-        public void TestMethod1()
+        public void Initialize()
         {
+            new MainViewModel();
         }
+
+
     }
 }
