@@ -1,4 +1,5 @@
-﻿using CH3mculator.Shared.Model.Entity;
+﻿using CH3mculator.Shared.Logic.Logging;
+using CH3mculator.Shared.Model.Entity;
 using Newtonsoft.Json.Linq;
 using System;
 using System.Globalization;
@@ -23,9 +24,22 @@ namespace CH3mculator.Shared.Logic.Web
             using (_httpClient = new HttpClient())
             {
 
-                compound.PubChemCid = (await _httpClient.GetStringAsync(string.Concat(_pubChemUrl, "/cids/", "/TXT/"))).Trim();
-                compound.MolecularWeight = await GetDoubleProperty(nameof(Compound.MolecularWeight));
-                compound.Density = await GetDensityAsync(compound.PubChemCid);
+                var idTask = _httpClient.GetStringAsync(string.Concat(_pubChemUrl, "/cids/", "/TXT/"));
+                var molWeightTask = GetDoubleProperty(nameof(Compound.MolecularWeight));
+                await Task.WhenAll(idTask, molWeightTask);
+
+                compound.PubChemCid = (idTask.Result).Trim();
+                compound.MolecularWeight = molWeightTask.Result;
+
+                try //extra catch because exceptions get thrown in case of non fluid compound
+                {
+                    compound.Density = await GetDensityAsync(compound.PubChemCid);
+                }
+                catch(Exception exception)
+                {
+                    Logger.Log.Exception(exception);
+                }
+                
             }
 
             return compound;
