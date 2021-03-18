@@ -48,7 +48,7 @@ namespace CH3mculator.Module.Calculator
                 }
                 else 
                 {
-                    MessageQueue.Enqueue("Could not retrieve compound ...did you spell it right?");
+                    MessageQueue.Enqueue("Could not retrieve compound... did you spell it right?");
                 }
             }
         }
