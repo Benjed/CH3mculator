@@ -45,7 +45,7 @@ namespace CH3mculator.Shell
 
         private void AddServices(IServiceCollection services)
         {
-            services.AddOptions< UsersettingsOptions>().Bind(Configuration.GetSection("Usersettings"));
+            services.AddOptions<UsersettingsOptions>().Bind(Configuration.GetSection("Usersettings"));
             services.AddTransient<Func<IOptions<UsersettingsOptions>>>(provider => () => provider.GetService<IOptions<UsersettingsOptions>>());
             services.AddSingleton<UsersettingsProvider>();
             services.AddTransient<CalculatorViewModel>();
