@@ -1,4 +1,4 @@
-﻿<UserControl x:Class="CH3mculator.Module.Calculator.MainView"
+﻿<UserControl x:Class="CH3mculator.Module.Calculator.CalculatorView"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
@@ -6,8 +6,12 @@
              xmlns:local="clr-namespace:CH3mculator.Module.Calculator"
              xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
              xmlns:controls="clr-namespace:CH3mculator.Shared.UI;assembly=CH3mculator.Shared.UI"
+             xmlns:converter="clr-namespace:CH3mculator.Shared.Logic.Converter;assembly=CH3mculator.Shared.Logic"
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
+    <UserControl.Resources>
+        <converter:SignificantFigureStringFormatConverter  x:Key="StringFormatConverter"/>
+    </UserControl.Resources>
     <Grid>
         <DataGrid AutoGenerateColumns="False"
             CanUserDeleteRows="True"
@@ -16,11 +20,11 @@
             ItemsSource="{Binding Compounds}">
             <DataGrid.Columns>
                 <DataGridTextColumn Header="Compound" Binding="{Binding Name}" IsReadOnly="True"/>
-                <DataGridTextColumn Header="n (mol)" Binding="{Binding Amount, UpdateSourceTrigger=PropertyChanged, StringFormat=N3}" />
-                <DataGridTextColumn Header="m (g)" Binding="{Binding Mass, UpdateSourceTrigger=PropertyChanged, StringFormat=N3}"/>
-                <DataGridTextColumn Header="V (ml)" Binding="{Binding Volume, UpdateSourceTrigger=PropertyChanged, StringFormat=N3}" />
-                <DataGridTextColumn Header="Molecular weight (mol)" Binding="{Binding MolecularWeight, UpdateSourceTrigger=PropertyChanged, StringFormat=N3}" IsReadOnly="True" />
-                <DataGridTextColumn Header="Density (g/cm³)" Binding="{Binding Density, UpdateSourceTrigger=PropertyChanged, StringFormat=N3}" IsReadOnly="True"/>
+                <DataGridTextColumn Header="n (mol)" Binding="{Binding Amount, UpdateSourceTrigger=PropertyChanged, Converter={StaticResource StringFormatConverter}}" />
+                <DataGridTextColumn Header="m (g)" Binding="{Binding Mass, UpdateSourceTrigger=PropertyChanged, Converter={StaticResource StringFormatConverter}}"/>
+                <DataGridTextColumn Header="V (ml)" Binding="{Binding Volume, UpdateSourceTrigger=PropertyChanged, Converter={StaticResource StringFormatConverter}}" />
+                <DataGridTextColumn Header="Molecular weight (mol)" Binding="{Binding MolecularWeight, UpdateSourceTrigger=PropertyChanged, Converter={StaticResource StringFormatConverter}}" IsReadOnly="True" />
+                <DataGridTextColumn Header="Density (g/cm³)" Binding="{Binding Density, UpdateSourceTrigger=PropertyChanged, Converter={StaticResource StringFormatConverter}}" IsReadOnly="True"/>
                 <DataGridTemplateColumn>
                     <DataGridTemplateColumn.CellTemplate>
                         <DataTemplate>

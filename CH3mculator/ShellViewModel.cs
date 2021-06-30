@@ -70,14 +70,12 @@ namespace CH3mculator.Shell
         public ICommand ShowSettingsCommand { get; set; }
         public ICommand ShowInfoCommand { get; set; }
 
-        public ShellViewModel()
+        public ShellViewModel(Calculator calculatorModule)
         {
-            ShowCalculatorCommand = new RelayCommand(() => 
-            {
-                if (_calculatorInstance == null)
-                    _calculatorInstance = new Calculator();
-                ShowModule(_calculatorInstance);
-            });
+            if (_calculatorInstance == null)
+                _calculatorInstance = calculatorModule;
+
+            ShowCalculatorCommand = new RelayCommand(() => ShowModule(_calculatorInstance));
             ShowPubChemViewerCommand = new RelayCommand(() => ShowModule(new PubChemViewer()));
             ShowInfoCommand = new RelayCommand(() => ShowModule(new Info()));
             ShowSettingsCommand = new RelayCommand(() => ShowModule(new Settings()));

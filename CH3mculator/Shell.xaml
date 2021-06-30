@@ -12,9 +12,6 @@
         TextElement.FontWeight="Medium"
         TextElement.FontSize="14"
         FontFamily="pack://application:,,,/MaterialDesignThemes.Wpf;component/Resources/Roboto/#Roboto">
-    <Window.DataContext>
-        <local:ShellViewModel />
-    </Window.DataContext>
     <materialDesign:DrawerHost LeftDrawerBackground="{DynamicResource MaterialDesignPaper}" 
                                x:Name="DrawerHost"
                                IsLeftDrawerOpen="{Binding IsNavigationDrawerOpened, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}">
@@ -29,7 +26,7 @@
                         Command="{Binding ShowPubChemViewerCommand}"/>
                 <Button Content="CH3mculator" 
                         Margin="0 0 0 10" 
-                        Command="{Binding ShowCalculatorCommand}"/>                 
+                        Command="{Binding ShowCalculatorCommand}"/>
                 <Button Content="Settings" 
                         Margin="0 0 0 10" 
                         Command="{Binding ShowSettingsCommand}"/> 

@@ -1,21 +1,26 @@
-﻿using CH3mculator.Shared.Model.Entity;
+﻿using CH3mculator.Shared.Logic;
+using CH3mculator.Shared.Model;
+using CH3mculator.Shared.Model.Entity;
 using GalaSoft.MvvmLight;
 using GalaSoft.MvvmLight.Command;
 using MaterialDesignThemes.Wpf;
+using Microsoft.Extensions.Options;
 using System;
 using System.Collections.ObjectModel;
 using System.Windows.Input;
 
 namespace CH3mculator.Module.Calculator
 {
-    public class MainViewModel : ViewModelBase
+    public class CalculatorViewModel : ViewModelBase
     {
-        public MainViewModel()
+        public CalculatorViewModel(Func<IOptions<UsersettingsOptions>> userSettingsFactory)
         {
             Compounds = new ObservableCollection<Compound>();
             MessageQueue = new SnackbarMessageQueue();
             MessageQueue.IgnoreDuplicate = true;
             RemoveCompoundCommand = new RelayCommand<Compound>(RemoveCompound);
+
+            UsersettingsProvider.GetUsersettings = userSettingsFactory;
         }
 
         private ObservableCollection<Compound> _compounds;
@@ -35,7 +40,6 @@ namespace CH3mculator.Module.Calculator
             get { return _messageQueue; }
             set { _messageQueue = value; }
         }
-
 
         public Compound NewCompound
         {

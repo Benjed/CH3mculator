@@ -9,7 +9,7 @@ namespace CH3mculator.Module.Calculator.Tests
         [TestMethod]
         public void Initialize()
         {
-            new MainViewModel();
+            new CalculatorViewModel(null);
         }
 
 
