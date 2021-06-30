@@ -5,8 +5,8 @@
     <UseWPF>true</UseWPF>
   </PropertyGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Shared\CH3mculator.Shared.Logic\CH3mculator.Shared.Logic.csproj" />
-    <ProjectReference Include="..\Shared\CH3mculator.Shared.Model\CH3mculator.Shared.Model.csproj" />
+    <ProjectReference Include="..\CH3mculator.Shared.Logic\CH3mculator.Shared.Logic.csproj" />
+    <ProjectReference Include="..\CH3mculator.Shared.Model\CH3mculator.Shared.Model.csproj" />
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="Microsoft.NET.Test.Sdk" Version="16.*" />

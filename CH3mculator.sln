@@ -19,13 +19,13 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CH3mculator.Shell.Tests", "
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CH3mculator.Module.PubChemViewer.Tests", "Module\CH3mculator.Module.PubChemViewer.Tests\CH3mculator.Module.PubChemViewer.Tests.csproj", "{6480D43E-CE41-4A8F-ABAA-2FD09D1E5B66}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CH3mculator.Shared.Logic.Tests", "CH3mculator.Shared.Logic.Tests\CH3mculator.Shared.Logic.Tests.csproj", "{19E08E17-B9BB-4229-A4A2-7F8308A2FD85}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CH3mculator.Shared.Logic.Tests", "Shared\CH3mculator.Shared.Logic.Tests\CH3mculator.Shared.Logic.Tests.csproj", "{19E08E17-B9BB-4229-A4A2-7F8308A2FD85}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CH3mculator.Module.Calculator", "CH3mculator.Module.Calculator\CH3mculator.Module.Calculator.csproj", "{69D91F6B-806E-404C-9D27-D3D7A540A141}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CH3mculator.Module.Calculator", "Module\CH3mculator.Module.Calculator\CH3mculator.Module.Calculator.csproj", "{69D91F6B-806E-404C-9D27-D3D7A540A141}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CH3mculator.Module.Calculator.Tests", "CH3mculator.Module.Calculator.Tests\CH3mculator.Module.Calculator.Tests.csproj", "{8234E114-6276-4574-8FE8-D9945A5CAD3B}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CH3mculator.Module.Calculator.Tests", "Module\CH3mculator.Module.Calculator.Tests\CH3mculator.Module.Calculator.Tests.csproj", "{8234E114-6276-4574-8FE8-D9945A5CAD3B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CH3mculator.Shared.UI", "CH3mculator.Shared.UI\CH3mculator.Shared.UI.csproj", "{C32924AB-6565-48E9-AB58-A6845EB1DB95}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CH3mculator.Shared.UI", "Shared\CH3mculator.Shared.UI\CH3mculator.Shared.UI.csproj", "{C32924AB-6565-48E9-AB58-A6845EB1DB95}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CH3mculator.Module.Settings", "Module\CH3mculator.Module.Settings\CH3mculator.Module.Settings.csproj", "{2DD90DB2-B367-47EF-84D9-661F31F98631}"
 EndProject
