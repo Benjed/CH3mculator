@@ -2,6 +2,6 @@
 {
     public class UsersettingsOptions
     {
-        public int SignificantFigure { get; set; }        
+        public int SignificantFigure { get; set; }
     }
 }

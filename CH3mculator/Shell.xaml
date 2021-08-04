@@ -27,9 +27,6 @@
                 <Button Content="CH3mculator" 
                         Margin="0 0 0 10" 
                         Command="{Binding ShowCalculatorCommand}"/>
-                <Button Content="Settings" 
-                        Margin="0 0 0 10" 
-                        Command="{Binding ShowSettingsCommand}"/> 
                 <Button Content="Info" 
                         Command="{Binding ShowInfoCommand}"/>
             </StackPanel>

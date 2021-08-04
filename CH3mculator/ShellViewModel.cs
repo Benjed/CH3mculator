@@ -67,7 +67,6 @@ namespace CH3mculator.Shell
 
         public ICommand ShowPubChemViewerCommand { get; set; }
         public ICommand ShowCalculatorCommand { get; set; }
-        public ICommand ShowSettingsCommand { get; set; }
         public ICommand ShowInfoCommand { get; set; }
 
         public ShellViewModel(Calculator calculatorModule)
@@ -78,7 +77,6 @@ namespace CH3mculator.Shell
             ShowCalculatorCommand = new RelayCommand(() => ShowModule(_calculatorInstance));
             ShowPubChemViewerCommand = new RelayCommand(() => ShowModule(new PubChemViewer()));
             ShowInfoCommand = new RelayCommand(() => ShowModule(new Info()));
-            ShowSettingsCommand = new RelayCommand(() => ShowModule(new Settings()));
             ShowCalculatorCommand.Execute(null);
         }
 
