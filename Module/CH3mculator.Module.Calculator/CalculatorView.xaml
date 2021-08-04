@@ -36,7 +36,8 @@
                     <DataGridTemplateColumn.CellTemplate>
                         <DataTemplate>
                             <Button Command="{Binding DataContext.RemoveCompoundCommand, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type UserControl}}}"
-                                    CommandParameter="{Binding}">
+                                    CommandParameter="{Binding}"
+                                    ToolTip="Remove compound">
                                 <materialDesign:PackIcon Kind="TrashCan" 
                                             Height="20" 
                                             Width="20"
