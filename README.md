@@ -8,4 +8,4 @@ To change the number of decimal places for all calculations, alter the "Siginifi
 
 ## System Requirements ##
 - Windows operating system
-- .Net 5 Desktop Runtime
+- [.Net 5 Desktop Runtime](https://dotnet.microsoft.com/download/dotnet/5.0)
