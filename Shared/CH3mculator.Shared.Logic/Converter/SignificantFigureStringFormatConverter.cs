@@ -11,8 +11,11 @@ namespace CH3mculator.Shared.Logic.Converter
         {
             if (value is double number)
             {
+                const string NOT_AVAILABLE = "N/A";
                 int significantFigures = UsersettingsProvider.GetUsersettings().Value.SignificantFigure;
-                return number.ToString($"N{significantFigures}", new CultureInfo("en-US"));
+                return double.IsInfinity(number) || (parameter is string param && param == "density" && number == 0.0)
+                    ? NOT_AVAILABLE
+                    : number.ToString($"N{significantFigures}", new CultureInfo("en-US"));
             }
             else
                 return value;
@@ -30,7 +33,6 @@ namespace CH3mculator.Shared.Logic.Converter
             }
             else
                 return value;
-
         }
     }
 }

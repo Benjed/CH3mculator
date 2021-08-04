@@ -24,7 +24,7 @@
                 <DataGridTextColumn Header="m (g)" Binding="{Binding Mass, UpdateSourceTrigger=PropertyChanged, Converter={StaticResource StringFormatConverter}}"/>
                 <DataGridTextColumn Header="V (ml)" Binding="{Binding Volume, UpdateSourceTrigger=PropertyChanged, Converter={StaticResource StringFormatConverter}}" />
                 <DataGridTextColumn Header="Molecular weight (mol)" Binding="{Binding MolecularWeight, UpdateSourceTrigger=PropertyChanged, Converter={StaticResource StringFormatConverter}}" IsReadOnly="True" />
-                <DataGridTextColumn Header="Density (g/cm³)" Binding="{Binding Density, UpdateSourceTrigger=PropertyChanged, Converter={StaticResource StringFormatConverter}}" IsReadOnly="True"/>
+                <DataGridTextColumn Header="Density (g/cm³)" Binding="{Binding Density, UpdateSourceTrigger=PropertyChanged, Converter={StaticResource StringFormatConverter}, ConverterParameter=density}" IsReadOnly="True"/>
                 <DataGridTemplateColumn>
                     <DataGridTemplateColumn.CellTemplate>
                         <DataTemplate>

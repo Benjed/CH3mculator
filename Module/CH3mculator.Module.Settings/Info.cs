@@ -5,7 +5,7 @@ namespace CH3mculator.Module.Settings
 {
     public class Info : IModule
     {
-        public string ModuleName { get; set; }=  "Info";
+        public string ModuleName { get; set; } = "Info";
 
         public UserControl GetEntryView()
         {
