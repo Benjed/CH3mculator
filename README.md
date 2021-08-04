@@ -4,7 +4,7 @@ A small tool to help you with stoichiometric calculations. Allows you to automat
 ![Preview Image for the CH3mculator](https://github.com/Benjed/CH3mculator/blob/master/calculator_preview.png)
 
 ## Settings ##
-To change the number of decimal places for all calculations, alter the "SiginificantFigure" in "appsettings.json".
+To change the number of decimal places for all calculations, alter the "SignificantFigure" in "appsettings.json".
 
 ## System Requirements ##
 - Windows operating system
